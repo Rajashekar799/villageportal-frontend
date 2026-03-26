@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Manrope', 'Noto Sans', 'Segoe UI', sans-serif;
+}
+
+body {
+  @apply text-slate-800;
+  background:
+    radial-gradient(1200px 380px at -5% -10%, rgba(82, 141, 87, 0.23), transparent 65%),
+    radial-gradient(900px 300px at 110% -5%, rgba(181, 149, 98, 0.22), transparent 60%),
+    linear-gradient(180deg, #f7f4ec 0%, #efe3cf 100%);
+  min-height: 100vh;
+}
+
+.card {
+  @apply rounded-2xl bg-white/95 p-4 border border-emerald-100;
+  box-shadow: 0 16px 30px rgba(30, 60, 38, 0.09);
+}
+
+.section-title {
+  @apply text-xl font-extrabold text-leaf tracking-tight;
+}
+
+.primary-btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-bold text-base;
+  background: linear-gradient(135deg, #2f7d32, #3e9341);
+  box-shadow: 0 10px 18px rgba(47, 125, 50, 0.28);
+}
+
+.secondary-btn {
+  @apply inline-flex items-center justify-center rounded-xl px-4 py-3 text-white font-bold text-base;
+  background: linear-gradient(135deg, #7a4f32, #8f5f3f);
+  box-shadow: 0 8px 16px rgba(122, 79, 50, 0.26);
+}
+
+.soft-btn {
+  @apply inline-flex items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700;
+}
