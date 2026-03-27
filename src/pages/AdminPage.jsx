@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { adminAuth, api } from '../api/client';
+import { adminAuth, api, resolveAssetUrl } from '../api/client';
 import { Bell, Image as ImageIcon, MessageSquareWarning, Store, Phone } from 'lucide-react';
 
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
@@ -594,7 +594,7 @@ export default function AdminPage() {
               <article key={image.id} className="rounded-xl border border-green-100 bg-emerald-50/40 p-3">
                 <div className="flex items-center justify-between gap-3">
                   <img
-                    src={image.thumbnailUrl || image.imageUrl}
+                    src={resolveAssetUrl(image.thumbnailUrl || image.imageUrl)}
                     alt={image.title}
                     className="h-14 w-14 rounded-lg border border-green-100 object-cover"
                     loading="lazy"

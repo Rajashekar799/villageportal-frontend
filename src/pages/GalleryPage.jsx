@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { api } from '../api/client';
+import { api, resolveAssetUrl } from '../api/client';
 import { fallbackGallery } from '../data/fallbackData';
 
 export default function GalleryPage() {
@@ -19,7 +19,7 @@ export default function GalleryPage() {
         {images.map((image) => (
           <article key={image.id} className="overflow-hidden rounded-2xl border border-green-100 bg-white shadow-card">
             <img
-              src={image.thumbnailUrl || image.imageUrl}
+              src={resolveAssetUrl(image.thumbnailUrl || image.imageUrl)}
               alt={image.title}
               className="h-28 w-full object-cover sm:h-36"
               loading="lazy"

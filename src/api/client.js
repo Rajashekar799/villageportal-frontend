@@ -1,5 +1,12 @@
 const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
 const ADMIN_TOKEN_KEY = 'pegadapalli_admin_token';
+const API_ORIGIN = (() => {
+  try {
+    return new URL(API_BASE).origin;
+  } catch {
+    return '';
+  }
+})();
 
 async function request(path, options = {}) {
   const hasFormDataBody = options.body instanceof FormData;
@@ -120,3 +127,23 @@ export const adminAuth = {
   setToken: (token) => localStorage.setItem(ADMIN_TOKEN_KEY, token),
   clearToken: () => localStorage.removeItem(ADMIN_TOKEN_KEY)
 };
+
+export function resolveAssetUrl(url) {
+  if (!url || typeof url !== 'string') {
+    return url;
+  }
+
+  if (url.startsWith('/')) {
+    return API_ORIGIN ? `${API_ORIGIN}${url}` : url;
+  }
+
+  try {
+    const parsed = new URL(url);
+    if ((parsed.hostname === 'localhost' || parsed.hostname === '127.0.0.1') && API_ORIGIN) {
+      return `${API_ORIGIN}${parsed.pathname}${parsed.search}${parsed.hash}`;
+    }
+    return url;
+  } catch {
+    return url;
+  }
+}
