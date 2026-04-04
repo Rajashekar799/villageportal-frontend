@@ -30,18 +30,6 @@ export default function Layout({ children }) {
 
       <main className="mx-auto max-w-5xl px-4 py-5">
         {children}
-
-        <footer className="mt-6 mb-20 rounded-2xl border border-emerald-100 bg-white/80 px-4 py-3 text-xs text-slate-600 shadow-card">
-          <p className="font-semibold text-soil">Terms and Conditions apply.</p>
-          <p className="mt-1">
-            Warning: Any false or misleading information may be reviewed and removed by admin.
-          </p>
-          <p className="mt-1">
-            Please utilize this portal responsibly and for meaningful community usage.
-          </p>
-          <p className="mt-2">© 2026 Pegadapalli Village Portal. All rights reserved.</p>
-          <p className="mt-1 font-semibold text-leaf">Developed and maintained by Rajashekar Rikkula.</p>
-        </footer>
       </main>
 
       <nav className="fixed bottom-0 left-0 right-0 z-30 border-t border-emerald-100 bg-white/95 backdrop-blur-lg">
