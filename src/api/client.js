@@ -1,10 +1,10 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080/api';
+const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
 const ADMIN_TOKEN_KEY = 'pegadapalli_admin_token';
 const API_ORIGIN = (() => {
   try {
-    return new URL(API_BASE).origin;
+    return new URL(API_BASE, window.location.origin).origin;
   } catch {
-    return '';
+    return window.location.origin;
   }
 })();
 

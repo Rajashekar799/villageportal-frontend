@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -23,6 +23,9 @@ function App() {
         <Route path="/complaint" element={<ComplaintPage />} />
         <Route path="/map" element={<MapPage />} />
         <Route path="/admin" element={<AdminPage />} />
+        <Route path="/login" element={<AdminPage />} />
+        <Route path="/dashboard" element={<AdminPage />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Layout>
   );
